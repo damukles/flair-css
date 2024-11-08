@@ -1,0 +1,118 @@
+:root {
+    --flair-primary-color-hue: 212;
+    --flair-primary-color-saturation: 71%;
+    --flair-primary-color-lightness: 55%;
+    --flair-primary-color: hsl(
+        var(--flair-primary-color-hue),
+        var(--flair-primary-color-saturation),
+        var(--flair-primary-color-lightness)
+    );
+    --flair-secondary-color-hue: var(--flair-primary-color-hue);
+    --flair-secondary-color-saturation: 25%;
+    --flair-secondary-color-lightness: 85%;
+    --flair-secondary-color: hsl(
+        var(--flair-secondary-color-hue),
+        var(--flair-secondary-color-saturation),
+        var(--flair-secondary-color-lightness)
+    );
+
+    /* typography */
+    --flair-font-family: Geneva, Verdana, sans-serif;
+    --flair-font-size: 16px;
+    --flair-line-height: 1.2;
+    --flair-typography-spacing-vertical: 1rem;
+
+    /* elements */
+    --flair-element-border-color: var(--flair-secondary-color);
+    --flair-element-background-color: hsl(180, 0%, 99%);
+    --flair-border-radius: 0.25rem;
+    --flair-button-padding: 0.75rem 1.75rem;
+    --flair-input-padding: var(--flair-button-padding);
+
+    /* calculated */
+    --flair-primary-color-darkened: hsl(
+        var(--flair-primary-color-hue),
+        var(--flair-primary-color-saturation),
+        calc(var(--flair-primary-color-lightness) - 15%)
+    );
+    --flair-secondary-color-darkened: hsl(
+        var(--flair-secondary-color-hue),
+        var(--flair-secondary-color-saturation),
+        calc(var(--flair-secondary-color-lightness) - 15%)
+    );
+    --flair-contrast-color-threshold: 60%;
+    --flair-contrast-color-switch: calc(
+        (var(--flair-primary-color-lightness) - var(--flair-contrast-color-threshold)) * -100
+    );
+    --flair-primary-contrast-color: hsl(0, 0%, calc(var(--flair-contrast-color-switch)));
+    --flair-h1-font-size: calc(var(--flair-font-size) * 2);
+    --flair-h2-font-size: calc(var(--flair-font-size) * 1.75);
+    --flair-h3-font-size: calc(var(--flair-font-size) * 1.5);
+    --flair-h4-font-size: calc(var(--flair-font-size) * 1.25);
+    --flair-h5-font-size: calc(var(--flair-font-size) * 1);
+    --flair-h6-font-size: calc(var(--flair-font-size) * 1);
+}
+
+* {
+    font-family: var(--flair-font-family);
+    font-size: var(--flair-font-size);
+    line-height: var(--flair-line-height);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: var(--flair-typography-spacing-vertical);
+}
+h1 {
+    font-size: var(--flair-h1-font-size);
+}
+h2 {
+    font-size: var(--flair-h2-font-size);
+}
+h3 {
+    font-size: var(--flair-h3-font-size);
+}
+h4 {
+    font-size: var(--flair-h4-font-size);
+}
+h5 {
+    font-size: var(--flair-h5-font-size);
+}
+h6 {
+    font-size: var(--flair-h6-font-size);
+}
+
+button {
+    padding: var(--flair-button-padding);
+    border-radius: var(--flair-border-radius);
+    background-color: var(--flair-secondary-color);
+    border: 1px solid var(--flair-secondary-color);
+}
+button:hover {
+    background-color: var(--flair-secondary-color-darkened);
+}
+
+button.primary {
+    background-color: var(--flair-primary-color);
+    color: var(--flair-primary-contrast-color);
+    border: 1px solid var(--flair-primary-color);
+}
+button.primary:hover {
+    background-color: var(--flair-primary-color-darkened);
+}
+
+input {
+    padding: var(--flair-input-padding);
+    background-color: var(--flair-element-background-color);
+    border-radius: var(--flair-border-radius);
+    border: 1px solid var(--flair-element-border-color);
+}
+input[type='text']:focus {
+    border: 2px solid var(--flair-primary-color);
+    margin: -1px;
+    outline: none;
+}
