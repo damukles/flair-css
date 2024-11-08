@@ -1,4 +1,5 @@
 :root {
+    /* main colors */
     --flair-primary-color-hue: 212;
     --flair-primary-color-saturation: 71%;
     --flair-primary-color-lightness: 55%;
@@ -15,6 +16,14 @@
         var(--flair-secondary-color-saturation),
         var(--flair-secondary-color-lightness)
     );
+    --flair-element-color-hue: var(--flair-primary-color-hue);
+    --flair-element-color-saturation: 25%;
+    --flair-element-color-lightness: 85%;
+    --flair-element-color: hsl(
+        var(--flair-element-color-hue),
+        var(--flair-element-color-saturation),
+        var(--flair-element-color-lightness)
+    );
 
     /* typography */
     --flair-font-family: Geneva, Verdana, sans-serif;
@@ -23,11 +32,13 @@
     --flair-typography-spacing-vertical: 1rem;
 
     /* elements */
-    --flair-element-border-color: var(--flair-secondary-color);
+    --flair-element-border-color: var(--flair-element-color);
     --flair-element-background-color: hsl(180, 0%, 99%);
     --flair-border-radius: 0.25rem;
     --flair-button-padding: 0.75rem 1.75rem;
-    --flair-input-padding: var(--flair-button-padding);
+    --flair-input-padding: 0.75rem 1rem;
+    --flair-element-spacing-vertical: 1rem;
+    --flair-element-spacing-horizontal: 2rem;
 
     /* calculated */
     --flair-primary-color-darkened: hsl(
@@ -51,6 +62,15 @@
     --flair-h4-font-size: calc(var(--flair-font-size) * 1.25);
     --flair-h5-font-size: calc(var(--flair-font-size) * 1);
     --flair-h6-font-size: calc(var(--flair-font-size) * 1);
+}
+
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 * {
@@ -86,6 +106,10 @@ h6 {
     font-size: var(--flair-h6-font-size);
 }
 
+div {
+    margin-bottom: var(--flair-element-spacing-vertical);
+}
+
 button {
     padding: var(--flair-button-padding);
     border-radius: var(--flair-border-radius);
@@ -105,14 +129,92 @@ button.primary:hover {
     background-color: var(--flair-primary-color-darkened);
 }
 
-input {
+:where(select, textarea):not([readonly]),
+input:not(
+        [type='submit'],
+        [type='button'],
+        [type='reset'],
+        [type='range'],
+        [type='file'],
+        [type='checkbox'],
+        [readonly]
+    ) {
     padding: var(--flair-input-padding);
     background-color: var(--flair-element-background-color);
     border-radius: var(--flair-border-radius);
     border: 1px solid var(--flair-element-border-color);
 }
-input[type='text']:focus {
+:where(select, textarea):not([readonly]):focus,
+input:not(
+        [type='submit'],
+        [type='button'],
+        [type='reset'],
+        [type='range'],
+        [type='file'],
+        [type='checkbox'],
+        [readonly]
+    ):focus {
     border: 2px solid var(--flair-primary-color);
     margin: -1px;
     outline: none;
+}
+
+form > :where(select, textarea):not([readonly]),
+input:not(
+        [type='submit'],
+        [type='button'],
+        [type='reset'],
+        [type='range'],
+        [type='file'],
+        [type='checkbox'],
+        [readonly]
+    ),
+form > :where(select, textarea):not([readonly]):focus,
+input:not(
+        [type='submit'],
+        [type='button'],
+        [type='reset'],
+        [type='range'],
+        [type='file'],
+        [type='checkbox'],
+        [readonly]
+    ):focus {
+    width: 100%;
+    margin-bottom: var(--flair-element-spacing-vertical);
+}
+
+.container,
+.container-fluid {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0;
+    padding-left: 0;
+}
+.container {
+    @media (min-width: 576px) {
+        max-width: 510px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    @media (min-width: 768px) {
+        max-width: 700px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    @media (min-width: 1024px) {
+        max-width: 950px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    @media (min-width: 1280px) {
+        max-width: 1200px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    @media (min-width: 1536px) {
+        max-width: 1450px;
+        padding-right: 0;
+        padding-left: 0;
+    }
 }
