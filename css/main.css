@@ -8,7 +8,7 @@
         var(--flair-primary-color-saturation),
         var(--flair-primary-color-lightness)
     );
-    --flair-secondary-color-hue: var(--flair-primary-color-hue);
+    --flair-secondary-color-hue: 32;
     --flair-secondary-color-saturation: 25%;
     --flair-secondary-color-lightness: 85%;
     --flair-secondary-color: hsl(
@@ -51,11 +51,24 @@
         var(--flair-secondary-color-saturation),
         calc(var(--flair-secondary-color-lightness) - 15%)
     );
+    --flair-element-color-darkened: hsl(
+        var(--flair-element-color-hue),
+        var(--flair-element-color-saturation),
+        calc(var(--flair-element-color-lightness) - 15%)
+    );
     --flair-contrast-color-threshold: 60%;
-    --flair-contrast-color-switch: calc(
+    --flair-primary-contrast-color-switch: calc(
         (var(--flair-primary-color-lightness) - var(--flair-contrast-color-threshold)) * -100
     );
-    --flair-primary-contrast-color: hsl(0, 0%, calc(var(--flair-contrast-color-switch)));
+    --flair-primary-contrast-color: hsl(0, 0%, calc(var(--flair-primary-contrast-color-switch)));
+    --flair-secondary-contrast-color-switch: calc(
+        (var(--flair-secondary-color-lightness) - var(--flair-contrast-color-threshold)) * -100
+    );
+    --flair-secondary-contrast-color: hsl(
+        0,
+        0%,
+        calc(var(--flair-secondary-contrast-color-switch))
+    );
     --flair-h1-font-size: calc(var(--flair-font-size) * 2);
     --flair-h2-font-size: calc(var(--flair-font-size) * 1.75);
     --flair-h3-font-size: calc(var(--flair-font-size) * 1.5);
@@ -113,11 +126,11 @@ div {
 button {
     padding: var(--flair-button-padding);
     border-radius: var(--flair-border-radius);
-    background-color: var(--flair-secondary-color);
-    border: 1px solid var(--flair-secondary-color);
+    background-color: var(--flair-element-color);
+    border: 1px solid var(--flair-element-color);
 }
 button:hover {
-    background-color: var(--flair-secondary-color-darkened);
+    background-color: var(--flair-element-color-darkened);
 }
 
 button.primary {
@@ -127,6 +140,14 @@ button.primary {
 }
 button.primary:hover {
     background-color: var(--flair-primary-color-darkened);
+}
+button.secondary {
+    background-color: var(--flair-secondary-color);
+    color: var(--flair-secondary-contrast-color);
+    border: 1px solid var(--flair-secondary-color);
+}
+button.secondary:hover {
+    background-color: var(--flair-secondary-color-darkened);
 }
 
 :where(select, textarea):not([readonly]),
