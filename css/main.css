@@ -77,19 +77,16 @@
     --flair-h6-font-size: calc(var(--flair-font-size) * 1);
 }
 
-* {
-    box-sizing: border-box;
-}
 *,
 *:before,
 *:after {
     box-sizing: inherit;
 }
-
 * {
     font-family: var(--flair-font-family);
     font-size: var(--flair-font-size);
     line-height: var(--flair-line-height);
+    box-sizing: border-box;
 }
 h1,
 h2,
