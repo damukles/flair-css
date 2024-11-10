@@ -24,6 +24,7 @@
         var(--flair-element-color-saturation),
         var(--flair-element-color-lightness)
     );
+    --flair-inactive-color: var(--flair-element-color);
 
     /* typography */
     --flair-font-family: Geneva, Verdana, sans-serif;
@@ -46,17 +47,32 @@
         var(--flair-primary-color-saturation),
         calc(var(--flair-primary-color-lightness) - 15%)
     );
+    --flair-primary-color-lightened: hsl(
+        var(--flair-primary-color-hue),
+        var(--flair-primary-color-saturation),
+        calc(var(--flair-primary-color-lightness) + 10%)
+    );
     --flair-secondary-color-darkened: hsl(
         var(--flair-secondary-color-hue),
         var(--flair-secondary-color-saturation),
         calc(var(--flair-secondary-color-lightness) - 15%)
+    );
+    --flair-secondary-color-lightened: hsl(
+        var(--flair-secondary-color-hue),
+        var(--flair-secondary-color-saturation),
+        calc(var(--flair-secondary-color-lightness) + 10%)
     );
     --flair-element-color-darkened: hsl(
         var(--flair-element-color-hue),
         var(--flair-element-color-saturation),
         calc(var(--flair-element-color-lightness) - 15%)
     );
-    --flair-contrast-color-threshold: 60%;
+    --flair-element-color-lightened: hsl(
+        var(--flair-element-color-hue),
+        var(--flair-element-color-saturation),
+        calc(var(--flair-element-color-lightness) + 10%)
+    );
+    --flair-contrast-color-threshold: 70%;
     --flair-primary-contrast-color-switch: calc(
         (var(--flair-primary-color-lightness) - var(--flair-contrast-color-threshold)) * -100
     );
@@ -126,25 +142,39 @@ button {
     background-color: var(--flair-element-color);
     border: 1px solid var(--flair-element-color);
 }
-button:hover {
+button:hover:enabled {
     background-color: var(--flair-element-color-darkened);
 }
-
+button:disabled {
+    background-color: var(--flair-element-color-lightened);
+    color: var(--flair-inactive-color);
+    border: 1px solid var(--flair-element-color-lightened);
+}
 button.primary {
     background-color: var(--flair-primary-color);
     color: var(--flair-primary-contrast-color);
     border: 1px solid var(--flair-primary-color);
 }
-button.primary:hover {
+button.primary:hover:enabled {
     background-color: var(--flair-primary-color-darkened);
+}
+button.primary:disabled {
+    background-color: var(--flair-primary-color-lightened);
+    color: var(--flair-inactive-color);
+    border: 1px solid var(--flair-primary-color-lightened);
 }
 button.secondary {
     background-color: var(--flair-secondary-color);
     color: var(--flair-secondary-contrast-color);
     border: 1px solid var(--flair-secondary-color);
 }
-button.secondary:hover {
+button.secondary:hover:enabled {
     background-color: var(--flair-secondary-color-darkened);
+}
+button.secondary:disabled {
+    background-color: var(--flair-secondary-color-lightened);
+    color: var(--flair-inactive-color);
+    border: 1px solid var(--flair-secondary-color-lightened);
 }
 
 :where(select, textarea):not([readonly]),
