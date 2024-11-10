@@ -24,6 +24,14 @@
         var(--flair-element-color-saturation),
         var(--flair-element-color-lightness)
     );
+    --flair-font-color-hue: var(--flair-primary-color-hue);
+    --flair-font-color-saturation: 25%;
+    --flair-font-color-lightness: 25%;
+    --flair-font-color: hsl(
+        var(--flair-font-color-hue),
+        var(--flair-font-color-saturation),
+        var(--flair-font-color-lightness)
+    );
     --flair-inactive-color: var(--flair-element-color);
 
     /* typography */
@@ -101,6 +109,7 @@
 * {
     font-family: var(--flair-font-family);
     font-size: var(--flair-font-size);
+    color: var(--flair-font-color);
     line-height: var(--flair-line-height);
     box-sizing: border-box;
 }
