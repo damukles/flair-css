@@ -382,6 +382,7 @@ div.navbar-burger {
 /* container */
 .container,
 .container-fluid {
+    min-width: 300px;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
