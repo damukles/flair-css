@@ -184,6 +184,9 @@ a.link-button:active {
 }
 
 /* buttons */
+button:not([disabled]) {
+    cursor: pointer;
+}
 button,
 a.link-button {
     padding: var(--flair-button-padding);
