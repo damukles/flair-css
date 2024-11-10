@@ -116,9 +116,6 @@
     line-height: var(--flair-line-height);
     box-sizing: border-box;
 }
-div {
-    margin-bottom: var(--flair-element-spacing-vertical);
-}
 
 /* typography */
 h1,
