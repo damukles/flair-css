@@ -37,13 +37,19 @@
                 <button disabled>Default</button>
             </div>
             <form>
-                <input type="text" placeholder="Text" />
+                <h6>Form</h6>
+                <input type="text" placeholder="Text" value="Testtext" />
                 <input type="date" />
                 <input type="time" />
+                <textarea placeholder="Textarea">Testtext</textarea>
             </form>
-            <div>
-                <textarea placeholder="Textarea"></textarea>
-            </div>
+            <form>
+                <h6>Disabled / readonly</h6>
+                <input type="text" placeholder="Text" value="Testtext" readonly />
+                <input type="date" disabled />
+                <input type="time" disabled />
+                <textarea placeholder="Textarea" readonly>Testtext</textarea>
+            </form>
             <div>
                 <input id="cb1" type="checkbox" />
                 <label for="cb1">Checkbox 1 (not styled yet)</label>
