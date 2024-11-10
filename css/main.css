@@ -375,11 +375,9 @@ nav.navbar > #navbar-toggler {
     }
     nav.navbar > #navbar-toggler:not(:checked) ~ .navbar-navigation {
         display: none;
-        /* width: 100%; */
     }
     nav.navbar > #navbar-toggler:checked ~ .navbar-navigation {
         display: flex;
-        /* overflow-y: auto; */
     }
 }
 
