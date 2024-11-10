@@ -344,6 +344,9 @@ nav.navbar > #navbar-toggler {
         align-items: stretch;
         justify-content: space-between;
     }
+    div.navbar-navigation {
+        margin-top: var(--flair-element-spacing-vertical);
+    }
     .navbar-item {
         margin: calc(var(--flair-navbar-item-spacing) / 2)
             calc(var(--flair-element-spacing-horizontal) / 2);
@@ -356,8 +359,9 @@ nav.navbar > #navbar-toggler {
     div.navbar-burger > label {
         display: inline-block;
         width: 50px;
-        height: 50px;
+        height: 48px;
         padding: 13px;
+        border-radius: var(--flair-border-radius);
     }
     div.navbar-burger > label:hover,
     .nav #navbar-toggler:checked ~ div.navbar-burger > label {
@@ -367,7 +371,7 @@ nav.navbar > #navbar-toggler {
         display: block;
         width: 25px;
         height: 10px;
-        border-top: 2px solid var(--flair-element-color-darkened);
+        border-top: 2px solid var(--flair-element-color-text);
     }
     nav.navbar > #navbar-toggler:not(:checked) ~ .navbar-navigation {
         display: none;
