@@ -155,9 +155,7 @@ button:hover:enabled {
     background-color: var(--flair-element-color-darkened);
 }
 button:disabled {
-    background-color: var(--flair-element-color-lightened);
-    color: var(--flair-inactive-color);
-    border: 1px solid var(--flair-element-color-lightened);
+    opacity: 0.5;
 }
 button.primary {
     background-color: var(--flair-primary-color);
@@ -167,11 +165,6 @@ button.primary {
 button.primary:hover:enabled {
     background-color: var(--flair-primary-color-darkened);
 }
-button.primary:disabled {
-    background-color: var(--flair-primary-color-lightened);
-    color: var(--flair-inactive-color);
-    border: 1px solid var(--flair-primary-color-lightened);
-}
 button.secondary {
     background-color: var(--flair-secondary-color);
     color: var(--flair-secondary-contrast-color);
@@ -179,11 +172,6 @@ button.secondary {
 }
 button.secondary:hover:enabled {
     background-color: var(--flair-secondary-color-darkened);
-}
-button.secondary:disabled {
-    background-color: var(--flair-secondary-color-lightened);
-    color: var(--flair-inactive-color);
-    border: 1px solid var(--flair-secondary-color-lightened);
 }
 
 :where(select, textarea):not([readonly]),
