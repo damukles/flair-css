@@ -302,7 +302,7 @@ header {
     background-color: var(--flair-header-background-color);
     box-shadow: var(--flair-header-box-shadow);
 }
-nav.navbar a.navbar-brand {
+nav.navbar .navbar-brand {
     display: inline-block;
     margin-right: var(--flair-element-spacing-horizontal);
 }
@@ -318,6 +318,9 @@ div.navbar-navigation {
 .navbar-item {
     margin: 0 var(--flair-navbar-item-spacing);
     display: block;
+}
+.navbar-item:last-child {
+    margin-right: 0;
 }
 a.navbar-item,
 a.navbar-item:active {
