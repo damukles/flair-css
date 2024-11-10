@@ -332,6 +332,9 @@ a.navbar-item:hover {
 div.navbar-burger {
     display: none;
 }
+nav.navbar > #navbar-toggler {
+    display: none;
+}
 /* responsive navbar */
 @media (max-width: 1024px) {
     nav.navbar,
@@ -340,7 +343,6 @@ div.navbar-burger {
         flex-direction: column;
         align-items: stretch;
         justify-content: space-between;
-        transition: all 0.3s ease-in;
     }
     .navbar-item {
         margin: calc(var(--flair-navbar-item-spacing) / 2)
@@ -358,7 +360,7 @@ div.navbar-burger {
         padding: 13px;
     }
     div.navbar-burger > label:hover,
-    .nav #nav-check:checked ~ div.navbar-burger > label {
+    .nav #navbar-toggler:checked ~ div.navbar-burger > label {
         background-color: var(--flair-element-color);
     }
     div.navbar-burger > label > span {
@@ -367,14 +369,12 @@ div.navbar-burger {
         height: 10px;
         border-top: 2px solid var(--flair-element-color-darkened);
     }
-    div.navbar-burger > #nav-check:not(:checked) ~ .navbar-navigation {
-        height: 0px;
-        border: 1px solid green;
+    nav.navbar > #navbar-toggler:not(:checked) ~ .navbar-navigation {
+        display: none;
         /* width: 100%; */
     }
-    div.navbar-burger > #nav-check:checked ~ .navbar-navigation {
-        height: initial;
-        border: 1px solid red;
+    nav.navbar > #navbar-toggler:checked ~ .navbar-navigation {
+        display: flex;
         /* overflow-y: auto; */
     }
 }
