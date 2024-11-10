@@ -329,6 +329,55 @@ a.navbar-item:active {
 a.navbar-item:hover {
     text-decoration: underline;
 }
+div.navbar-burger {
+    display: none;
+}
+/* responsive navbar */
+@media (max-width: 1024px) {
+    nav.navbar,
+    div.navbar-navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+        transition: all 0.3s ease-in;
+    }
+    .navbar-item {
+        margin: calc(var(--flair-navbar-item-spacing) / 2)
+            calc(var(--flair-element-spacing-horizontal) / 2);
+        display: block;
+    }
+    div.navbar-burger {
+        display: block;
+        float: right;
+    }
+    div.navbar-burger > label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+    div.navbar-burger > label:hover,
+    .nav #nav-check:checked ~ div.navbar-burger > label {
+        background-color: var(--flair-element-color);
+    }
+    div.navbar-burger > label > span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid var(--flair-element-color-darkened);
+    }
+    div.navbar-burger > #nav-check:not(:checked) ~ .navbar-navigation {
+        height: 0px;
+        border: 1px solid green;
+        /* width: 100%; */
+    }
+    div.navbar-burger > #nav-check:checked ~ .navbar-navigation {
+        height: initial;
+        border: 1px solid red;
+        /* overflow-y: auto; */
+    }
+}
 
 /* container */
 .container,
