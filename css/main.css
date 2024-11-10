@@ -149,6 +149,34 @@ h6 {
     font-size: var(--flair-h6-font-size);
 }
 
+/* links */
+a {
+    color: var(--flair-element-color-darkened);
+    text-decoration: underline;
+    text-decoration-color: var(--flair-element-color);
+}
+a:hover,
+a:active {
+    color: var(--flair-element-color-darkened);
+    text-decoration-color: var(--flair-element-color-darkened);
+}
+a.primary {
+    color: var(--flair-primary-color);
+}
+a.primary:hover,
+a.primary:active {
+    color: var(--flair-primary-color-darkened);
+    text-decoration-color: var(--flair-primary-color-darkened);
+}
+a.secondary {
+    color: var(--flair-secondary-color);
+}
+a.secondary:hover,
+a.secondary:active {
+    color: var(--flair-secondary-color-darkened);
+    text-decoration-color: var(--flair-secondary-color-darkened);
+}
+
 /* buttons */
 button {
     padding: var(--flair-button-padding);
