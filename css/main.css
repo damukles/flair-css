@@ -348,7 +348,7 @@ nav.navbar > #navbar-toggler {
         margin-top: var(--flair-element-spacing-vertical);
     }
     .navbar-item {
-        margin: calc(var(--flair-navbar-item-spacing) / 2)
+        margin: calc(var(--flair-navbar-item-spacing) / 1.5)
             calc(var(--flair-element-spacing-horizontal) / 2);
         display: block;
     }
