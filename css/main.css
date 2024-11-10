@@ -51,6 +51,8 @@
         var(--flair-element-spacing-horizontal-wide);
     --flair-input-padding: var(--flair-element-spacing-vertical)
         var(--flair-element-spacing-horizontal);
+    --flair-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='hsl(180, 1%, 25%)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    --flair-select-chevron-spacing-left: 1rem;
 
     /* calculated colors */
     --flair-primary-color-darkened: hsl(
@@ -262,6 +264,13 @@ input:not(
     ) {
     width: 100%;
     margin-bottom: var(--flair-element-spacing-vertical);
+}
+select:not([multiple], [size]) {
+    appearance: none;
+    background-image: var(--flair-select-chevron);
+    background-position: center right var(--flair-select-chevron-spacing-left);
+    background-size: 1rem auto;
+    background-repeat: no-repeat;
 }
 
 /* disabled */

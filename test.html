@@ -5,6 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Test-Page</title>
         <link rel="stylesheet" href="css/main.css" />
+        <style lang="css">
+            div {
+                margin-bottom: var(--flair-element-spacing-vertical);
+            }
+        </style>
     </head>
     <body>
         <main class="container">
@@ -53,6 +58,16 @@
                 <input type="text" placeholder="Text" value="Testtext" />
                 <input type="date" />
                 <input type="time" />
+                <select>
+                    <option value="">Pet</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="parrot">Parrot</option>
+                    <option value="spider">Spider</option>
+                    <option value="goldfish">Goldfish</option>
+                </select>
+
                 <textarea placeholder="Textarea">Testtext</textarea>
             </form>
             <form>
