@@ -49,7 +49,7 @@
     --flair-element-spacing-vertical: 1rem;
     --flair-element-spacing-horizontal: 2rem;
 
-    /* calculated */
+    /* calculated colors */
     --flair-primary-color-darkened: hsl(
         var(--flair-primary-color-hue),
         var(--flair-primary-color-saturation),
@@ -93,6 +93,8 @@
         0%,
         calc(var(--flair-secondary-contrast-color-switch))
     );
+
+    /* calculated font sizes */
     --flair-h1-font-size: calc(var(--flair-font-size) * 2);
     --flair-h2-font-size: calc(var(--flair-font-size) * 1.75);
     --flair-h3-font-size: calc(var(--flair-font-size) * 1.5);
@@ -101,6 +103,7 @@
     --flair-h6-font-size: calc(var(--flair-font-size) * 1);
 }
 
+/* defaults */
 *,
 *:before,
 *:after {
@@ -113,6 +116,11 @@
     line-height: var(--flair-line-height);
     box-sizing: border-box;
 }
+div {
+    margin-bottom: var(--flair-element-spacing-vertical);
+}
+
+/* typography */
 h1,
 h2,
 h3,
@@ -141,10 +149,7 @@ h6 {
     font-size: var(--flair-h6-font-size);
 }
 
-div {
-    margin-bottom: var(--flair-element-spacing-vertical);
-}
-
+/* buttons */
 button {
     padding: var(--flair-button-padding);
     border-radius: var(--flair-border-radius);
@@ -174,6 +179,7 @@ button.secondary:hover:enabled {
     background-color: var(--flair-secondary-color-darkened);
 }
 
+/* forms and inputs */
 :where(select, textarea):not([readonly]),
 input:not(
         [type='submit'],
@@ -228,6 +234,7 @@ input:not(
     margin-bottom: var(--flair-element-spacing-vertical);
 }
 
+/* container */
 .container,
 .container-fluid {
     width: 100%;
