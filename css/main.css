@@ -2,7 +2,7 @@
     /* main colors */
     --flair-primary-color-hue: 212;
     --flair-primary-color-saturation: 71%;
-    --flair-primary-color-lightness: 55%;
+    --flair-primary-color-lightness: 45%;
     --flair-primary-color: hsl(
         var(--flair-primary-color-hue),
         var(--flair-primary-color-saturation),
@@ -10,7 +10,7 @@
     );
     --flair-secondary-color-hue: 32;
     --flair-secondary-color-saturation: 25%;
-    --flair-secondary-color-lightness: 85%;
+    --flair-secondary-color-lightness: 65%;
     --flair-secondary-color: hsl(
         var(--flair-secondary-color-hue),
         var(--flair-secondary-color-saturation),
