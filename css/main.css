@@ -322,22 +322,6 @@ a.navbar-item:active {
 a.navbar-item:hover {
     text-decoration: underline;
 }
-/* div.navbar-navigation {
-    flex-grow: 1;
-    flex-shrink: 0;
-}
-nav div.navbar-start {
-    justify-content: flex-start;
-    margin-inline-end: auto;
-}
-nav div.navbar-end {
-    justify-content: flex-end;
-    margin-inline-start: auto;
-}
-nav .navbar-item {
-    display: flex;
-    align-items: center;
-} */
 
 /* container */
 .container,
