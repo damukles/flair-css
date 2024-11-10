@@ -386,33 +386,23 @@ nav.navbar > #navbar-toggler {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: calc(var(--flair-element-spacing-horizontal) / 2);
+    padding-left: calc(var(--flair-element-spacing-horizontal) / 2);
 }
 .container {
     @media (min-width: 576px) {
         max-width: 510px;
-        padding-right: 0;
-        padding-left: 0;
     }
-    @media (min-width: 768px) {
+    @media (min-width: 730px) {
         max-width: 700px;
-        padding-right: 0;
-        padding-left: 0;
     }
     @media (min-width: 1024px) {
         max-width: 950px;
-        padding-right: 0;
-        padding-left: 0;
     }
     @media (min-width: 1280px) {
         max-width: 1200px;
-        padding-right: 0;
-        padding-left: 0;
     }
     @media (min-width: 1536px) {
         max-width: 1450px;
-        padding-right: 0;
-        padding-left: 0;
     }
 }
