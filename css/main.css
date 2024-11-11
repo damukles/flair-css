@@ -244,15 +244,25 @@ input:not(
         [type='file'],
         [type='checkbox']
     ) {
-    height: calc(
-        calc(1rem * var(--flair-line-height)) + calc(2 * var(--flair-element-spacing-vertical)) +
-            2px
-    );
     padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
     background-color: var(--flair-element-background-color);
     border-radius: var(--flair-border-radius);
     border: 1px solid var(--flair-element-border-color);
     outline: none;
+}
+select,
+input:not(
+        [type='submit'],
+        [type='button'],
+        [type='reset'],
+        [type='range'],
+        [type='file'],
+        [type='checkbox']
+    ) {
+    height: calc(
+        calc(1rem * var(--flair-line-height)) + calc(2 * var(--flair-element-spacing-vertical)) +
+            2px
+    );
 }
 :where(select, textarea):not([readonly]):focus,
 input:not(
