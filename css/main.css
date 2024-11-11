@@ -37,6 +37,7 @@
     /* typography */
     --flair-font-family: Geneva, Verdana, sans-serif;
     --flair-font-size: 16px;
+    --flair-font-weight: 400;
     --flair-line-height: 1.2;
     --flair-typography-spacing-vertical: 1rem;
 
@@ -290,6 +291,11 @@ form
     ) {
     width: 100%;
     margin-bottom: var(--flair-element-spacing-vertical);
+}
+form > label {
+    font-weight: calc(var(--flair-font-weight) - 100);
+    display: block;
+    margin-bottom: calc(var(--flair-element-spacing-vertical) / 3);
 }
 select:not([multiple], [size]) {
     appearance: none;
