@@ -334,15 +334,20 @@ header {
     background-color: var(--flair-header-background-color);
     box-shadow: var(--flair-header-box-shadow);
 }
+nav.navbar .navbar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 nav.navbar .navbar-brand {
     display: inline-block;
 }
-nav.navbar img {
+nav.navbar .navbar-brand > img {
     max-height: 3rem;
     margin-right: var(--flair-element-spacing-horizontal);
 }
 nav.navbar,
-div.navbar-navigation {
+nav.navbar .navbar-navigation {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -371,13 +376,13 @@ nav.navbar > #navbar-toggler {
 /* responsive navbar */
 @media (max-width: 1024px) {
     nav.navbar,
-    div.navbar-navigation {
+    nav.navbar .navbar-navigation {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         justify-content: space-between;
     }
-    div.navbar-navigation {
+    nav.navbar .navbar-navigation {
         margin-top: var(--flair-element-spacing-vertical);
     }
     .navbar-item {
@@ -388,8 +393,7 @@ nav.navbar > #navbar-toggler {
         margin-right: var(--flair-element-spacing-horizontal);
     }
     div.navbar-burger {
-        display: block;
-        float: right;
+        display: flex;
     }
     div.navbar-burger > label {
         display: inline-block;
