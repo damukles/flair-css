@@ -4,105 +4,136 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Test-Page</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="test.css" />
+        <style id="theme"></style>
     </head>
     <body>
-        <header>
-            <nav class="navbar container">
-                <input type="checkbox" id="navbar-toggler" />
-                <div class="navbar-brand" href="#">
-                    <img src="flair-logo.png" alt="logo" />
-                    <div class="navbar-burger">
-                        <label for="navbar-toggler">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </label>
+        <div id="app">
+            <header>
+                <nav class="navbar container">
+                    <input type="checkbox" id="navbar-toggler" />
+                    <div class="navbar-brand" href="#">
+                        <img src="flair-logo.png" alt="logo" />
+                        <div class="navbar-burger">
+                            <label for="navbar-toggler">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="navbar-navigation">
+                        <a class="navbar-item primary" href="#">Information</a>
+                        <a class="navbar-item primary" href="#">Products</a>
+                        <a class="navbar-item secondary" href="#">About us</a>
+                        <a class="navbar-item secondary" href="#">Some Page</a>
+                        <a class="navbar-item" href="#">About</a>
+                        <a class="navbar-item" href="#">Company</a>
+                        <button class="navbar-item secondary">Login</button>
+                    </div>
+                </nav>
+            </header>
+            <main class="container">
+                <div class="demo-section">
+                    <h6>Theming</h6>
+                    <div class="grid-theming">
+                        <label class="grid-theming-l1" for="primary">Primary Color</label>
+                        <input
+                            class="color-box grid-theming-v1"
+                            id="primary"
+                            v-model="primaryColor"
+                            type="color"
+                        />
+                        <label class="grid-theming-l2" for="primary">Secondary Color</label>
+                        <input
+                            class="color-box grid-theming-v2"
+                            id="primary"
+                            v-model="secondaryColor"
+                            type="color"
+                        />
                     </div>
                 </div>
-                <div class="navbar-navigation">
-                    <a class="navbar-item primary" href="#">Information</a>
-                    <a class="navbar-item primary" href="#">Products</a>
-                    <a class="navbar-item secondary" href="#">About us</a>
-                    <a class="navbar-item secondary" href="#">Some Page</a>
-                    <a class="navbar-item" href="#">About</a>
-                    <a class="navbar-item" href="#">Company</a>
-                    <button class="navbar-item secondary">Login</button>
+                <div class="demo-section">
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <h4>Heading 4</h4>
+                    <h5>Heading 5</h5>
+                    <h6>Heading 6</h6>
+                    <p>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+                        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                        amet.
+                    </p>
                 </div>
-            </nav>
-        </header>
-        <main class="container">
-            <div class="demo-section">
-                <h1>Heading 1</h1>
-                <h2>Heading 2</h2>
-                <h3>Heading 3</h3>
-                <h4>Heading 4</h4>
-                <h5>Heading 5</h5>
-                <h6>Heading 6</h6>
-                <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                    vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                    no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-                    amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-                    et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-                    sanctus est Lorem ipsum dolor sit amet.
-                </p>
-            </div>
-            <div class="demo-section">
-                <h6>Buttons</h6>
-                <button class="primary">Primary</button>
-                <button class="secondary">Secondary</button>
-                <button>Default</button>
-            </div>
-            <div class="demo-section">
-                <h6>Disabled</h6>
-                <button class="primary" disabled>Primary</button>
-                <button class="secondary" disabled>Secondary</button>
-                <button disabled>Default</button>
-            </div>
-            <div class="demo-section">
-                <h6>Links</h6>
-                <a href="#" class="primary">Primary</a>
-                <a href="#" class="secondary">Secondary</a>
-                <a href="#">Default</a>
-            </div>
-            <div class="demo-section">
-                <h6>Link-Buttons</h6>
-                <a href="#" class="link-button primary">Primary</a>
-                <a href="#" class="link-button secondary">Secondary</a>
-                <a href="#" class="link-button">Default</a>
-            </div>
-            <form class="demo-section">
-                <h6>Form</h6>
-                <input type="text" placeholder="Text" value="Testtext" />
-                <input type="date" />
-                <input type="time" />
-                <select>
-                    <option value="">Pet</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="hamster">Hamster</option>
-                    <option value="parrot">Parrot</option>
-                    <option value="spider">Spider</option>
-                    <option value="goldfish">Goldfish</option>
-                </select>
-
-                <textarea placeholder="Textarea">Testtext</textarea>
-            </form>
-            <form class="demo-section">
-                <h6>Disabled / readonly</h6>
-                <input type="text" placeholder="Text" value="Testtext" readonly />
-                <input type="date" disabled />
-                <input type="time" disabled />
-                <textarea placeholder="Textarea" readonly>Testtext</textarea>
-            </form>
-            <div class="demo-section">
-                <input id="cb1" type="checkbox" />
-                <label for="cb1">Checkbox 1 (not styled yet)</label>
-            </div>
-        </main>
+                <div class="demo-section">
+                    <h6>Buttons</h6>
+                    <button class="primary">Primary</button>
+                    <button class="secondary">Secondary</button>
+                    <button>Default</button>
+                </div>
+                <div class="demo-section">
+                    <h6>Disabled</h6>
+                    <button class="primary" disabled>Primary</button>
+                    <button class="secondary" disabled>Secondary</button>
+                    <button disabled>Default</button>
+                </div>
+                <div class="demo-section">
+                    <h6>Links</h6>
+                    <a href="#" class="primary">Primary</a>
+                    <a href="#" class="secondary">Secondary</a>
+                    <a href="#">Default</a>
+                </div>
+                <div class="demo-section">
+                    <h6>Link-Buttons</h6>
+                    <a href="#" class="link-button primary">Primary</a>
+                    <a href="#" class="link-button secondary">Secondary</a>
+                    <a href="#" class="link-button">Default</a>
+                </div>
+                <form class="demo-section">
+                    <h6>Form</h6>
+                    <label for="text">Text</label>
+                    <input id="text" type="text" placeholder="Text" value="Testtext" />
+                    <label for="date">Date</label>
+                    <input id="date " type="date" />
+                    <label for="time">Time</label>
+                    <input id="time" type="time" />
+                    <label for="color">Color</label>
+                    <input id="color" type="color" value="#216dc4" />
+                    <label for="select">Select</label>
+                    <select id="select">
+                        <option value="">Pet</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="hamster">Hamster</option>
+                        <option value="parrot">Parrot</option>
+                        <option value="spider">Spider</option>
+                        <option value="goldfish">Goldfish</option>
+                    </select>
+                    <label for="textarea">Textarea</label>
+                    <textarea id="textarea" placeholder="Textarea">Testtext</textarea>
+                </form>
+                <form class="demo-section">
+                    <h6>Disabled / readonly</h6>
+                    <input type="text" placeholder="Text" value="Testtext" readonly />
+                    <input type="date" disabled />
+                    <input type="time" disabled />
+                    <textarea placeholder="Textarea" readonly>Testtext</textarea>
+                </form>
+                <div class="demo-section">
+                    <input id="cb1" type="checkbox" />
+                    <label for="cb1">Checkbox 1 (not styled yet)</label>
+                </div>
+            </main>
+        </div>
+        <script src="test.js"></script>
     </body>
 </html>

@@ -49,8 +49,6 @@
     --flair-element-spacing-horizontal-wide: 1.75rem;
     --flair-button-padding: var(--flair-element-spacing-vertical)
         var(--flair-element-spacing-horizontal-wide);
-    --flair-input-padding: var(--flair-element-spacing-vertical)
-        var(--flair-element-spacing-horizontal);
     --flair-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='hsl(180, 1%, 25%)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     --flair-select-chevron-spacing-left: 1rem;
     --flair-header-padding: var(--flair-element-spacing-vertical) 0;
@@ -246,7 +244,11 @@ input:not(
         [type='file'],
         [type='checkbox']
     ) {
-    padding: var(--flair-input-padding);
+    height: calc(
+        calc(1rem * var(--flair-line-height)) + calc(2 * var(--flair-element-spacing-vertical)) +
+            2px
+    );
+    padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
     background-color: var(--flair-element-background-color);
     border-radius: var(--flair-border-radius);
     border: 1px solid var(--flair-element-border-color);
@@ -285,6 +287,19 @@ select:not([multiple], [size]) {
     background-position: center right var(--flair-select-chevron-spacing-left);
     background-size: 1rem auto;
     background-repeat: no-repeat;
+}
+input[type='color'] {
+    padding: calc(var(--flair-element-spacing-vertical) / 2)
+        calc(var(--flair-element-spacing-horizontal) / 2);
+}
+input[type='color'].color-box,
+input[type='color'].color-box:focus {
+    width: 2.25rem;
+    height: 2rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 /* disabled */
@@ -335,6 +350,7 @@ div.navbar-burger {
 nav.navbar > #navbar-toggler {
     display: none;
 }
+
 /* responsive navbar */
 @media (max-width: 1024px) {
     nav.navbar,
