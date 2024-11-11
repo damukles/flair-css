@@ -336,10 +336,10 @@ header {
 }
 nav.navbar .navbar-brand {
     display: inline-block;
-    margin-right: var(--flair-element-spacing-horizontal);
 }
 nav.navbar img {
     max-height: 3rem;
+    margin-right: var(--flair-element-spacing-horizontal);
 }
 nav.navbar,
 div.navbar-navigation {
@@ -381,9 +381,11 @@ nav.navbar > #navbar-toggler {
         margin-top: var(--flair-element-spacing-vertical);
     }
     .navbar-item {
-        margin: calc(var(--flair-navbar-item-spacing) / 1.5)
-            calc(var(--flair-element-spacing-horizontal) / 2);
+        margin: var(--flair-navbar-item-spacing) var(--flair-element-spacing-horizontal);
         display: block;
+    }
+    .navbar-item:last-child {
+        margin-right: var(--flair-element-spacing-horizontal);
     }
     div.navbar-burger {
         display: block;
