@@ -414,6 +414,15 @@ nav.navbar > #navbar-toggler {
     }
 }
 
+/* card */
+.card {
+    margin-bottom: var(--flair-element-spacing-vertical);
+    padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
+    background: var(--flair-element-background-color);
+    border-radius: var(--flair-border-radius);
+    box-shadow: var(--flair-element-box-shadow);
+}
+
 /* container */
 .container,
 .container-fluid {
