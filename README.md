@@ -8,7 +8,7 @@
 
 # Demo
 
-[Demo](test.html)
+[Demo](https://damukles.github.io/flair/test.html)
 
 # Known Issues
 
