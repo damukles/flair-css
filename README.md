@@ -2,7 +2,7 @@
 
 minimal, customizable, css framework
 
-heavily inspired by picocss, bulma and boottrap
+heavily inspired by pico, bulma and bootstrap
 
 ## Next
 
