@@ -54,6 +54,7 @@
         var(--flair-element-spacing-horizontal-wide);
     --flair-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='hsl(180, 1%, 25%)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     --flair-select-chevron-spacing-left: 1rem;
+    --flair-checkbox-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
     --flair-header-padding: var(--flair-element-spacing-vertical) 0;
     --flair-header-background-color: var(--flair-background-color);
     --flair-header-box-shadow: var(--flair-element-box-shadow);
@@ -274,7 +275,6 @@ input:not(
         [type='reset'],
         [type='range'],
         [type='file'],
-        [type='checkbox'],
         [readonly]
     ):focus {
     border: 1px solid var(--flair-primary-color);
@@ -297,7 +297,7 @@ form
 form > label {
     font-weight: calc(var(--flair-font-weight) - 100);
     display: block;
-    margin-bottom: calc(var(--flair-element-spacing-vertical) / 3);
+    margin-bottom: calc(var(--flair-element-spacing-vertical) / 2);
 }
 select:not([multiple], [size]) {
     appearance: none;
@@ -318,6 +318,33 @@ input[type='color'].color-box:focus {
     background: transparent;
     border: none;
     box-shadow: none;
+}
+
+/* checkbox */
+input[type='checkbox'] {
+    border: 1px solid var(--flair-element-border-color);
+    accent-color: var(--flair-primary-color);
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: -0.25rem;
+    margin-inline-end: 0.5rem;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: var(--flair-border-radius);
+}
+input[type='checkbox']:checked,
+input[type='checkbox']:checked:active,
+input[type='checkbox']:checked:focus {
+    background-color: var(--flair-primary-color);
+    border-color: var(--flair-primary-color);
+    background-image: var(--flair-checkbox-icon);
+    background-position: center;
+    background-size: 0.75rem auto;
+    background-repeat: no-repeat;
+}
+label:has(input[type='checkbox']) {
+    margin-bottom: calc(var(--flair-element-spacing-vertical) / 2);
 }
 
 /* disabled */
