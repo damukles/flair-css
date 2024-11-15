@@ -353,6 +353,14 @@ label:has(input[type='checkbox']) {
     opacity: 0.5;
 }
 
+/* horizontal ruler */
+hr {
+    height: 0;
+    border: 0;
+    border-top: 1px solid var(--flair-element-border-color);
+    color: inherit;
+}
+
 /* navbar */
 header {
     top: 0;
