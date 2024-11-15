@@ -464,6 +464,38 @@ nav.navbar > #navbar-toggler {
     border-radius: var(--flair-border-radius);
     box-shadow: var(--flair-element-box-shadow);
 }
+.card-header,
+.card-footer {
+    display: flex;
+    flex-direction: row;
+    margin-left: calc(var(--flair-element-spacing-horizontal) * -1);
+    margin-right: calc(var(--flair-element-spacing-horizontal) * -1);
+    padding: calc(var(--flair-element-spacing-vertical)) var(--flair-element-spacing-horizontal);
+    background-color: var(--flair-element-background-color);
+    > h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: calc(var(--flair-element-spacing-vertical) / 2);
+        margin-bottom: calc(var(--flair-element-spacing-vertical) / 3);
+    }
+}
+.card-header {
+    margin-top: calc(var(--flair-element-spacing-vertical) * -1);
+    margin-bottom: var(--flair-element-spacing-vertical);
+    border-top-right-radius: var(--flair-border-radius);
+    border-top-left-radius: var(--flair-border-radius);
+    border-bottom: 1px solid var(--flair-element-border-color);
+}
+.card-footer {
+    margin-top: var(--flair-element-spacing-vertical);
+    margin-bottom: calc(var(--flair-element-spacing-vertical) * -1);
+    border-bottom-right-radius: var(--flair-border-radius);
+    border-bottom-left-radius: var(--flair-border-radius);
+    border-top: 1px solid var(--flair-element-border-color);
+}
 
 /* container */
 .container,
@@ -491,4 +523,17 @@ nav.navbar > #navbar-toggler {
     @media (min-width: 1536px) {
         max-width: 1450px;
     }
+}
+
+/* helpers */
+.text-capitalize {
+    text-transform: capitalize;
+}
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+.spacing-vertical {
+    display: flex;
+    gap: var(--flair-element-spacing-horizontal);
 }
