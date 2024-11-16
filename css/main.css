@@ -32,7 +32,6 @@
         var(--flair-font-color-saturation),
         var(--flair-font-color-lightness)
     );
-    --flair-inactive-color: var(--flair-element-color);
     --flair-background-color: hsl(0, 0%, 100%);
 
     /* typography */
