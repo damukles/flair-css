@@ -352,6 +352,9 @@ input[type='checkbox']:checked:focus {
 label:has(input[type='checkbox']) {
     margin-bottom: calc(var(--flair-element-spacing-vertical) / 2);
 }
+textarea {
+    max-width: 100%;
+}
 
 /* disabled */
 *:disabled,
