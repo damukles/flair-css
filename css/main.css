@@ -234,6 +234,10 @@ button.secondary:not([disabled]):hover,
 a.link-button.secondary:not([disabled]):hover {
     background-color: var(--flair-secondary-color-darkened);
 }
+button.icon-button,
+a.link-button.icon-button {
+    padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
+}
 
 /* forms and inputs */
 select,
