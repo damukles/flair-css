@@ -35,7 +35,7 @@
     --flair-background-color: hsl(0, 0%, 100%);
 
     /* typography */
-    --flair-font-family: Geneva, Verdana, sans-serif;
+    --flair-font-family: 'Segoe UI', Verdana, sans-serif;
     --flair-font-size: 16px;
     --flair-font-weight: 400;
     --flair-line-height: 1.2;
