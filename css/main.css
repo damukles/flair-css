@@ -544,3 +544,7 @@ nav.navbar > #navbar-toggler {
     display: flex;
     gap: var(--flair-element-spacing-horizontal);
 }
+.justify-content-end {
+    display: flex;
+    justify-content: end;
+}
