@@ -1,0 +1,30 @@
+{
+    "name": "flair-css",
+    "version": "0.0.1",
+    "author": "Daniel Mueller",
+    "license": "MIT",
+    "description": "",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        "./dist/flair.css": {
+            "import": "./dist/flair.css",
+            "require": "./dist/flair.css"
+        }
+    },
+    "scripts": {
+        "prefix": "postcss css/main.css --use autoprefixer -o dist/_prefixed.css",
+        "compress": "sass --style=compressed dist/_prefixed.css dist/flair.css",
+        "build": "pnpm run prefix && pnpm run compress && rm -f dist/_prefixed.css"
+    },
+    "keywords": [],
+    "devDependencies": {
+        "autoprefixer": "^10.4.20",
+        "node-sass": "^9.0.0",
+        "postcss": "^8.4.49",
+        "postcss-cli": "^11.0.0",
+        "sass": "^1.81.0"
+    }
+}
