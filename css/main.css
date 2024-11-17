@@ -238,8 +238,8 @@ button.icon-button,
 a.link-button.icon-button {
     padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
 }
-button.icon-button > i,
-a.link-button.icon-button > i {
+button > i,
+a.link-button > i {
     color: inherit;
 }
 
