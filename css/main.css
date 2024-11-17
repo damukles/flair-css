@@ -556,3 +556,7 @@ nav.navbar > #navbar-toggler {
     display: flex;
     justify-content: end;
 }
+.justify-content-start {
+    display: flex;
+    justify-content: start;
+}
