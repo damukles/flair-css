@@ -22,7 +22,6 @@
     "keywords": [],
     "devDependencies": {
         "autoprefixer": "^10.4.20",
-        "node-sass": "^9.0.0",
         "postcss": "^8.4.49",
         "postcss-cli": "^11.0.0",
         "sass": "^1.81.0"
