@@ -51,7 +51,7 @@
     --flair-element-spacing-horizontal-wide: calc(var(--flair-element-spacing-horizontal) * 1.75);
     --flair-element-box-shadow: 0 2px 12px 0 hsl(var(--flair-primary-color-hue), 10%, 90%);
     --flair-element-box-shadow-dark: 0 2px 24px 4px hsl(var(--flair-primary-color-hue), 10%, 80%);
-    --flair-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='hsl(180, 1%, 25%)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    --flair-select-chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='hsl(180, 1%, 25%)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     --flair-select-chevron-spacing-left: 1rem;
     --flair-checkbox-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
     --flair-header-padding: var(--flair-element-spacing-vertical) 0;
@@ -308,7 +308,7 @@ form > label {
 }
 select:not([multiple], [size]) {
     appearance: none;
-    background-image: var(--flair-select-chevron);
+    background-image: var(--flair-select-chevron-down);
     background-position: center right var(--flair-select-chevron-spacing-left);
     background-size: 1rem auto;
     background-repeat: no-repeat;
@@ -552,17 +552,14 @@ table.elevated {
     color: var(--flair-primary-contrast-color);
     background-color: var(--flair-primary-color);
 }
-
 .badge.secondary {
     background-color: var(--flair-secondary-color);
     color: var(--flair-secondary-contrast-color);
 }
-
 .badge.light {
     background-color: var(--flair-element-color);
     color: inherit;
 }
-
 .badge.dark {
     background-color: var(--flair-primary-color-darkened);
     color: var(--flair-primary-contrast-color);
@@ -571,19 +568,16 @@ table.elevated {
 /* Accordion */
 .accordion {
     margin-bottom: var(--flair-element-spacing-vertical);
-    border: 1px solid var(--flair-element-border-color);
     border-radius: var(--flair-border-radius);
+    box-shadow: var(--flair-element-box-shadow);
     overflow: hidden;
 }
-
 .accordion-item {
     border-bottom: 1px solid var(--flair-element-border-color);
 }
-
 .accordion-item:last-child {
     border-bottom: none;
 }
-
 .accordion-header {
     background-color: var(--flair-element-background-color);
     padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
@@ -592,35 +586,33 @@ table.elevated {
     justify-content: space-between;
     align-items: center;
 }
-
 .accordion-header:hover {
-    background-color: var(--flair-element-color-lightened);
+    background-color: var(--flair-element-background-color);
 }
-
 .accordion-header.active {
-    background-color: var(--flair-element-color);
+    background-color: var(--flair-element-background-color);
+    border-bottom: 1px solid var(--flair-element-border-color);
     color: inherit;
     font-weight: calc(var(--flair-font-weight) + 100);
 }
-
 .accordion-header::after {
-    content: '+';
-    font-weight: bold;
-    transform: rotate(0deg);
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7' /%3E%3C/svg%3E")
+        no-repeat center;
+    background-color: var(--flair-font-color);
+    transform: rotate(90deg);
     transition: transform 0.3s;
 }
-
 .accordion-header.active::after {
-    content: '-';
     transform: rotate(180deg);
 }
-
 .accordion-content {
-    display: none;
     padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
     background-color: var(--flair-background-color);
+    display: none;
 }
-
 .accordion-content.active {
     display: block;
 }
