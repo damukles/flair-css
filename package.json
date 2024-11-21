@@ -8,22 +8,30 @@
     "files": [
         "dist"
     ],
+    "main": "dist/flair.js",
     "exports": {
         "./dist/flair.css": {
             "import": "./dist/flair.css",
             "require": "./dist/flair.css"
+        },
+        ".": {
+            "import": "./dist/flair.js",
+            "require": "./dist/flair.js"
         }
     },
     "scripts": {
-        "prefix": "postcss css/main.css --use autoprefixer -o dist/_prefixed.css",
-        "compress": "sass --style=compressed dist/_prefixed.css dist/flair.css",
-        "build": "pnpm run prefix && pnpm run compress && rm -f dist/_prefixed.css"
+        "esbuild": "node ./esbuild.js",
+        "prefix": "postcss css/main.css --use autoprefixer -o temp/_prefixed.css",
+        "compress": "sass --style=compressed temp/_prefixed.css dist/flair.css",
+        "build": "rimraf dist/ && pnpm run prefix && pnpm run compress && rimraf temp/ && pnpm run esbuild"
     },
     "keywords": [],
     "devDependencies": {
         "autoprefixer": "^10.4.20",
+        "esbuild": "^0.24.0",
         "postcss": "^8.4.49",
         "postcss-cli": "^11.0.0",
+        "rimraf": "^6.0.1",
         "sass": "^1.81.0"
     }
 }
