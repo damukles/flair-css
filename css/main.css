@@ -529,6 +529,9 @@ table th {
 table tr:last-child td {
     border-bottom: none;
 }
+table tr:hover {
+    background-color: var(--flair-element-background-color);
+}
 table.striped th {
     background-color: var(--flair-element-background-color);
 }
