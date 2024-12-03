@@ -529,7 +529,8 @@ table th {
 table tr:last-child td {
     border-bottom: none;
 }
-table tr:not(.bg-primary, .bg-secondary):hover {
+table tr:not(.bg-primary, .bg-secondary, .bg-light, .bg-dark):hover,
+table.striped tr:nth-child(even):not(.bg-primary, .bg-secondary, .bg-light, .bg-dark):hover {
     background-color: var(--flair-element-color);
 }
 table.striped th {
