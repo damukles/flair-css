@@ -584,6 +584,7 @@ table.elevated {
 .accordion-header {
     background-color: var(--flair-element-background-color);
     padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
+    line-height: calc(var(--flair-line-height) * 1.5);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -610,6 +611,15 @@ table.elevated {
 }
 .accordion-header.active::after {
     transform: rotate(180deg);
+}
+.accordion-header > h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: calc(var(--flair-element-spacing-vertical) / 3);
+    margin-bottom: calc(var(--flair-element-spacing-vertical) / 3);
 }
 .accordion-content {
     padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
