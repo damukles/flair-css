@@ -514,6 +514,7 @@ table {
     border-collapse: collapse;
     margin-bottom: var(--flair-element-spacing-vertical);
     background-color: var(--flair-background-color);
+    color: var(--flair-font-color);
     overflow: hidden;
 }
 table th,
@@ -523,14 +524,13 @@ table td {
     border-bottom: 1px solid var(--flair-element-border-color);
 }
 table th {
-    color: var(--flair-font-color);
     font-weight: calc(var(--flair-font-weight) + 100);
 }
 table tr:last-child td {
     border-bottom: none;
 }
-table tr:hover {
-    background-color: var(--flair-element-background-color);
+table tr:not(.bg-primary, .bg-secondary):hover {
+    background-color: var(--flair-element-color);
 }
 table.striped th {
     background-color: var(--flair-element-background-color);
