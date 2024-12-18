@@ -7,6 +7,13 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="test.css" />
+        <style>
+            img#logo {
+                @media (prefers-color-scheme: dark) {
+                    filter: invert();
+                }
+            }
+        </style>
         <style id="theme"></style>
     </head>
     <body>
@@ -16,7 +23,7 @@
                     <input type="checkbox" id="navbar-toggler" />
                     <div class="navbar-top">
                         <a class="navbar-brand" href="#">
-                            <img src="flair-logo.png" alt="logo" />
+                            <img id="logo" src="flair-logo.png" alt="logo" />
                         </a>
                         <div class="navbar-burger">
                             <label for="navbar-toggler">
