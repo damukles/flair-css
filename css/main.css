@@ -571,6 +571,7 @@ table {
     border-collapse: collapse;
     margin-bottom: var(--flair-element-spacing-vertical);
     background-color: var(--flair-background-color);
+    border-radius: var(--flair-border-radius);
     color: var(--flair-font-color);
     overflow: hidden;
 }
@@ -595,13 +596,6 @@ table.striped th {
 }
 table.striped tr:nth-child(even) {
     background-color: var(--flair-element-background-color);
-}
-table.elevated {
-    border-radius: var(--flair-border-radius);
-    box-shadow: var(--flair-element-box-shadow);
-    @media (prefers-color-scheme: dark) {
-        box-shadow: var(--flair-element-box-shadow-dark);
-    }
 }
 
 /* Badges */
@@ -723,6 +717,12 @@ h6 {
 }
 
 /* helpers */
+.elevated {
+    box-shadow: var(--flair-element-box-shadow);
+    @media (prefers-color-scheme: dark) {
+        box-shadow: var(--flair-element-box-shadow-dark);
+    }
+}
 .text-capitalize {
     text-transform: capitalize;
 }
