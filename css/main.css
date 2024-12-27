@@ -66,6 +66,9 @@
         hsl(0, 0%, var(--flair-background-color-lightness)),
         hsl(0, 0%, calc(100% - var(--flair-background-color-lightness)))
     );
+    --flair-danger-color: hsl(0, 100%, 45%);
+    --flair-success-color: hsl(120, 100%, 35%);
+    --flair-warning-color: hsl(50, 100%, 50%);
 
     /* typography */
     --flair-font-family: 'Segoe UI', Verdana, sans-serif;
