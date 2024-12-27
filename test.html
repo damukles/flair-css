@@ -118,7 +118,7 @@
                 <form class="demo-section">
                     <h6>Form</h6>
                     <label for="text">Text</label>
-                    <input id="text" type="text" placeholder="Text" value="Testtext" />
+                    <input id="text" type="text" placeholder="Text" required />
                     <label for="date">Date</label>
                     <input id="date " type="date" />
                     <label for="time">Time</label>
@@ -126,8 +126,8 @@
                     <label for="color">Color</label>
                     <input id="color" type="color" value="#216dc4" />
                     <label for="select">Select</label>
-                    <select id="select">
-                        <option value="">Pet</option>
+                    <select id="select" required>
+                        <option value="pet">Pet</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
                         <option value="hamster">Hamster</option>
@@ -138,7 +138,7 @@
                     <label for="textarea">Textarea</label>
                     <textarea id="textarea" placeholder="Textarea">Testtext</textarea>
                     <label for="checkbox1">
-                        <input id="checkbox1" type="checkbox" />Checkbox 1</label
+                        <input id="checkbox1" type="checkbox" required />Checkbox 1</label
                     >
                     <label for="checkbox2">
                         <input id="checkbox2" type="checkbox" />Checkbox 2</label

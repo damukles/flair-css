@@ -329,17 +329,30 @@ input:not(
             2px
     );
 }
-:where(select, textarea):not([readonly]):focus,
+:where(select, textarea):not([readonly], :invalid):focus,
 input:not(
         [type='submit'],
         [type='button'],
         [type='reset'],
         [type='range'],
         [type='file'],
-        [readonly]
+        [readonly],
+        :invalid
     ):focus {
     border: 1px solid var(--flair-primary-color);
     box-shadow: inset 0 0 0 1px var(--flair-primary-color);
+}
+select:invalid,
+textarea:invalid,
+input:not(
+        [type='submit'],
+        [type='button'],
+        [type='reset'],
+        [type='range'],
+        [type='file'],
+        [type='checkbox']
+    ):invalid {
+    border: 1px solid var(--flair-danger-color);
 }
 form > select,
 form > textarea,
@@ -404,9 +417,21 @@ input[type='checkbox']:checked:focus {
     background-size: 0.75rem auto;
     background-repeat: no-repeat;
 }
+input[type='checkbox']:not(:invalid):focus {
+    border: 1px solid var(--flair-primary-color);
+    box-shadow: 0 0 0 1px var(--flair-primary-color);
+}
+input[type='checkbox']:invalid {
+    border: 1px solid var(--flair-danger-color);
+}
 label:has(input[type='checkbox']) {
     margin-bottom: calc(var(--flair-element-spacing-vertical) / 2);
 }
+label:has(input[type='checkbox']:invalid) {
+    color: var(--flair-danger-color);
+}
+
+/* textarea */
 textarea {
     max-width: 100%;
 }
