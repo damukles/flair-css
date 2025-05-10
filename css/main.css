@@ -815,6 +815,9 @@ h6 {
         box-shadow: var(--flair-element-box-shadow-dark);
     }
 }
+.rounded {
+    border-radius: var(--flair-border-radius);
+}
 .text-capitalize {
     text-transform: capitalize;
 }
