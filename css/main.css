@@ -224,6 +224,7 @@ a {
     color: var(--flair-default-color-text);
     text-decoration: underline;
     text-decoration-color: var(--flair-default-color);
+    cursor: pointer;
 }
 a:hover,
 a:active {
