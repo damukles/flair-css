@@ -785,6 +785,32 @@ h6 {
     display: block;
 }
 
+/* Tabs */
+ul.tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    border-bottom: 1px solid var(--flair-element-border-color);
+}
+ul.tabs li {
+    padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
+    cursor: pointer;
+    transition: border-color 0.3s;
+    list-style: none;
+    display: block;
+}
+ul.tabs li:hover {
+    color: var(--flair-primary-color);
+    border-bottom: 1px solid var(--flair-primary-color);
+}
+
+ul.tabs li.active {
+    color: var(--flair-primary-color);
+    border-bottom: 1px solid var(--flair-primary-color);
+    transition: border-color 0.3s;
+}
+
 /* container */
 .container,
 .container-fluid {
