@@ -794,11 +794,12 @@ ul.tabs {
     border-bottom: 1px solid var(--flair-element-border-color);
 }
 ul.tabs li {
-    padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
-    cursor: pointer;
-    transition: border-color 0.3s;
     list-style: none;
     display: block;
+    cursor: pointer;
+    padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
 }
 ul.tabs li:hover {
     color: var(--flair-primary-color);
