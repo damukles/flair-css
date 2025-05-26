@@ -832,6 +832,10 @@ ul.tabs li.active {
     justify-content: center;
     align-items: center;
 }
+.modal-content {
+    max-width: 90%;
+    width: max(500px, 50vw);
+}
 
 /* container */
 .container,
