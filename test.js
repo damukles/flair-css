@@ -22,6 +22,10 @@ createApp({
                 secondary: hexToHSL(this.secondaryColor),
             });
         },
+        toggleModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.toggle('show');
+        },
     },
 }).mount('#app');
 

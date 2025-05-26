@@ -812,6 +812,27 @@ ul.tabs li.active {
     transition: border-color 0.3s;
 }
 
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: hsl(0, 0%, 0%, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+}
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* container */
 .container,
 .container-fluid {
