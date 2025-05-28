@@ -834,6 +834,7 @@ ul.tabs li.active {
 }
 .modal-content {
     max-width: 90%;
+    min-width: 300px;
     width: max(500px, 50vw);
 }
 
