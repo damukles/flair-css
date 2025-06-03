@@ -547,6 +547,19 @@ textarea {
     border-bottom-left-radius: 0;
 }
 
+/* Detail */
+dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: var(--flair-element-spacing-horizontal);
+    row-gap: calc(0.5 * var(--flair-element-spacing-vertical));
+    align-items: center;
+}
+
+dl dt {
+    font-weight: calc(var(--flair-font-weight) + 100);
+}
+
 /* horizontal ruler */
 hr {
     height: 0;
