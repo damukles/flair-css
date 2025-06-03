@@ -557,14 +557,17 @@ hr {
 
 /* navbar */
 header {
-    top: 0;
-    position: sticky;
-    z-index: 1000;
     padding: var(--flair-header-padding);
     background-color: var(--flair-header-background-color);
     box-shadow: var(--flair-element-box-shadow);
     @media (prefers-color-scheme: dark) {
         box-shadow: var(--flair-element-box-shadow-dark);
+    }
+
+    .sticky {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 }
 nav.navbar .navbar-top {
