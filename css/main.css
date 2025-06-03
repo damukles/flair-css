@@ -820,11 +820,11 @@ table.striped tr:nth-child(even) {
     transform: rotate(180deg);
 }
 .accordion-header > h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.accordion-header > h2,
+.accordion-header > h3,
+.accordion-header > h4,
+.accordion-header > h5,
+.accordion-header > h6 {
     margin-top: calc(var(--flair-element-spacing-vertical) / 3);
     margin-bottom: calc(var(--flair-element-spacing-vertical) / 3);
 }
