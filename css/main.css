@@ -909,8 +909,6 @@ ul.tabs li.active {
 
 /* Alerts */
 .alert {
-    display: flex;
-    align-items: flex-start;
     padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
     border-radius: var(--flair-border-radius);
     margin-bottom: var(--flair-element-spacing-vertical);
