@@ -910,11 +910,10 @@ ul.tabs li.active {
 /* Alerts */
 .alert {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
     border-radius: var(--flair-border-radius);
     margin-bottom: var(--flair-element-spacing-vertical);
-    /* font-weight: calc(var(--flair-font-weight) + 100); */
     border: 1px solid transparent;
     background-color: var(--flair-default-color);
     color: var(--flair-font-color);
