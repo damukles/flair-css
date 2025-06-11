@@ -434,6 +434,23 @@ input[type='color'].color-box:focus {
     border: none;
     box-shadow: none;
 }
+:where(select, textarea):has(+ span.form-hint),
+input:not(
+        [type='submit'],
+        [type='button'],
+        [type='reset'],
+        [type='range'],
+        [type='file'],
+        [type='checkbox']
+    ):has(+ span.form-hint) {
+    margin-bottom: 0;
+}
+span.form-hint {
+    display: inline-block;
+    font-size: calc(0.8 * var(--flair-font-size));
+    font-weight: calc(var(--flair-font-weight) - 100);
+    margin-bottom: calc(1.5 * var(--flair-element-spacing-vertical));
+}
 
 /* checkbox */
 input[type='checkbox'] {
