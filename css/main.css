@@ -907,6 +907,48 @@ ul.tabs li.active {
     width: max(500px, 50vw);
 }
 
+/* Alerts */
+.alert {
+    display: flex;
+    align-items: center;
+    padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
+    border-radius: var(--flair-border-radius);
+    margin-bottom: var(--flair-element-spacing-vertical);
+    /* font-weight: calc(var(--flair-font-weight) + 100); */
+    border: 1px solid transparent;
+    background-color: var(--flair-default-color);
+    color: var(--flair-font-color);
+}
+.alert-primary {
+    background-color: var(--flair-primary-color-lightened);
+    color: var(--flair-primary-contrast-color);
+    border-color: var(--flair-primary-color);
+}
+.alert-secondary {
+    background-color: var(--flair-secondary-color-lightened);
+    color: var(--flair-secondary-contrast-color);
+    border-color: var(--flair-secondary-color);
+}
+.alert-success {
+    background-color: var(--flair-success-color);
+    color: var(--flair-primary-contrast-color);
+    border-color: var(--flair-success-color);
+}
+.alert-warning {
+    background-color: var(--flair-warning-color);
+    border-color: var(--flair-warning-color);
+}
+.alert-danger {
+    background-color: var(--flair-danger-color);
+    color: var(--flair-primary-contrast-color);
+    border-color: var(--flair-danger-color);
+}
+
+span.alert-title {
+    font-weight: calc(var(--flair-font-weight) + 100);
+    color: inherit;
+}
+
 /* container */
 .container,
 .container-fluid {
