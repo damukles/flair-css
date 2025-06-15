@@ -334,8 +334,8 @@ a.link-button.icon-button {
         vertical-align: middle;
     }
 }
-button > i,
-a.link-button > i {
+button > *,
+a > * {
     color: inherit;
 }
 
