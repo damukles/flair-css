@@ -69,6 +69,8 @@
     --flair-danger-color: hsl(0, 100%, 45%);
     --flair-success-color: hsl(120, 100%, 35%);
     --flair-warning-color: hsl(50, 100%, 50%);
+    --flair-modal-background-color: hsl(0, 0%, 0%, 0.1);
+    --flair-modal-background-blur: blur(15px);
 
     /* typography */
     --flair-font-family: 'Segoe UI', Verdana, sans-serif;
@@ -891,9 +893,9 @@ ul.tabs li.active {
     bottom: 0;
     right: 0;
     z-index: 1000;
-    background-color: hsl(0, 0%, 0%, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background-color: var(--flair-modal-background-color);
+    backdrop-filter: var(--flair-modal-background-blur);
+    -webkit-backdrop-filter: var(--flair-modal-background-blur);
     transition: all 0.3s ease;
 }
 .modal.show {
