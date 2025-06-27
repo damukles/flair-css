@@ -453,6 +453,12 @@ span.form-hint {
     font-weight: calc(var(--flair-font-weight) - 100);
     margin-bottom: calc(1.5 * var(--flair-element-spacing-vertical));
 }
+span.form-hint:empty {
+    display: none;
+}
+span.form-hint > * {
+    font-size: inherit;
+}
 
 /* checkbox */
 input[type='checkbox'] {
