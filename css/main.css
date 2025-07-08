@@ -411,7 +411,7 @@ form
     width: 100%;
     margin-bottom: var(--flair-element-spacing-vertical);
 }
-form > label {
+label {
     font-weight: calc(var(--flair-font-weight) - 100);
     display: block;
     margin-bottom: calc(var(--flair-element-spacing-vertical) / 2);
