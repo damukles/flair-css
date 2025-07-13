@@ -946,12 +946,12 @@ ul.tabs li.active {
     color: var(--flair-font-color);
 }
 .alert-primary {
-    background-color: var(--flair-primary-color-lightened);
+    background-color: var(--flair-primary-color);
     color: var(--flair-primary-contrast-color);
     border-color: var(--flair-primary-color);
 }
 .alert-secondary {
-    background-color: var(--flair-secondary-color-lightened);
+    background-color: var(--flair-secondary-color);
     color: var(--flair-secondary-contrast-color);
     border-color: var(--flair-secondary-color);
 }
@@ -962,6 +962,7 @@ ul.tabs li.active {
 }
 .alert-warning {
     background-color: var(--flair-warning-color);
+    color: var(--flair-primary-contrast-color);
     border-color: var(--flair-warning-color);
 }
 .alert-danger {
@@ -1090,6 +1091,10 @@ span.alert-title {
 }
 .bg-warning {
     background-color: var(--flair-warning-color);
+    color: var(--flair-primary-contrast-color);
+    * {
+        color: var(--flair-primary-contrast-color);
+    }
 }
 .text-primary {
     color: var(--flair-primary-color);
