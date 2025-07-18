@@ -796,6 +796,18 @@ table.striped tr:nth-child(even) {
     background-color: var(--flair-primary-color-darkened);
     color: var(--flair-primary-contrast-color);
 }
+.badge.success {
+    background-color: var(--flair-success-color);
+    color: var(--flair-primary-contrast-color);
+}
+.badge.warning {
+    background-color: var(--flair-warning-color);
+    color: var(--flair-primary-contrast-color);
+}
+.badge.danger {
+    background-color: var(--flair-danger-color);
+    color: var(--flair-primary-contrast-color);
+}
 
 /* Selection List */
 
