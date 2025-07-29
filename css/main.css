@@ -341,6 +341,57 @@ a > * {
     color: inherit;
 }
 
+.switch {
+    --flair-switch-height: calc(1.5rem * var(--flair-line-height));
+    position: relative;
+    display: inline-block;
+    width: calc(var(--flair-switch-height) * 1.76);
+    height: var(--flair-switch-height);
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--flair-default-color);
+        transition: 0.4s;
+        border-radius: var(--flair-switch-height);
+    }
+
+    .slider:before {
+        --flair-switch-slider-size: calc(var(--flair-switch-height) * 0.76);
+        position: absolute;
+        content: '';
+        height: var(--flair-switch-slider-size);
+        width: var(--flair-switch-slider-size);
+        left: calc(var(--flair-switch-height) * 0.12);
+        bottom: calc(var(--flair-switch-height) * 0.12);
+        background-color: var(--flair-primary-contrast-color);
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    input {
+        display: none;
+    }
+
+    input:checked + .slider {
+        background-color: var(--flair-primary-color);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(calc(var(--flair-switch-slider-size) * 1));
+    }
+}
+
 /* forms and inputs */
 select,
 textarea,
