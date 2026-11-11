@@ -13,6 +13,7 @@
     /* dark-mode lightness = pivot - light-mode lightness */
     --flair-dark-lightness-pivot: 1.15;
     --flair-shade-step: 0.12;
+    --flair-tint-step: 75%;
     /* text on a fill turns white below this lightness, black above */
     --flair-contrast-color-threshold: 0.6;
 
@@ -71,10 +72,16 @@
         )
     );
     --flair-primary-color-lightened: light-dark(
-        oklch(from var(--flair-primary) calc(l + var(--flair-shade-step)) c h),
-        oklch(
-            from var(--flair-primary)
-                calc(var(--flair-dark-lightness-pivot) - l - var(--flair-shade-step)) c h
+        color-mix(
+            in oklch,
+            var(--flair-primary) calc(100% - var(--flair-tint-step)),
+            white var(--flair-tint-step)
+        ),
+        color-mix(
+            in oklch,
+            oklch(from var(--flair-primary) calc(var(--flair-dark-lightness-pivot) - l) c h)
+                calc(100% - var(--flair-tint-step)),
+            black var(--flair-tint-step)
         )
     );
     --flair-secondary-color-darkened: light-dark(
@@ -85,10 +92,16 @@
         )
     );
     --flair-secondary-color-lightened: light-dark(
-        oklch(from var(--flair-secondary) calc(l + var(--flair-shade-step)) c h),
-        oklch(
-            from var(--flair-secondary)
-                calc(var(--flair-dark-lightness-pivot) - l - var(--flair-shade-step)) c h
+        color-mix(
+            in oklch,
+            var(--flair-secondary) calc(100% - var(--flair-tint-step)),
+            white var(--flair-tint-step)
+        ),
+        color-mix(
+            in oklch,
+            oklch(from var(--flair-secondary) calc(var(--flair-dark-lightness-pivot) - l) c h)
+                calc(100% - var(--flair-tint-step)),
+            black var(--flair-tint-step)
         )
     );
     --flair-default-color-darkened: light-dark(
@@ -142,6 +155,51 @@
                     1
                 )
                 0 0
+        )
+    );
+    --flair-primary-lightened-contrast-color: light-dark(
+        oklch(
+            from
+                color-mix(
+                    in oklch,
+                    var(--flair-primary) calc(100% - var(--flair-tint-step)),
+                    white var(--flair-tint-step)
+                )
+                clamp(0, (var(--flair-contrast-color-threshold) - l) * 1000000, 1) 0 0
+        ),
+        oklch(
+            from
+                color-mix(
+                    in oklch,
+                    oklch(from var(--flair-primary) calc(var(--flair-dark-lightness-pivot) - l) c h)
+                        calc(100% - var(--flair-tint-step)),
+                    black var(--flair-tint-step)
+                )
+                clamp(0, (var(--flair-contrast-color-threshold) - l) * 1000000, 1) 0 0
+        )
+    );
+    --flair-secondary-lightened-contrast-color: light-dark(
+        oklch(
+            from
+                color-mix(
+                    in oklch,
+                    var(--flair-secondary) calc(100% - var(--flair-tint-step)),
+                    white var(--flair-tint-step)
+                )
+                clamp(0, (var(--flair-contrast-color-threshold) - l) * 1000000, 1) 0 0
+        ),
+        oklch(
+            from
+                color-mix(
+                    in oklch,
+                    oklch(
+                            from var(--flair-secondary) calc(var(--flair-dark-lightness-pivot) - l)
+                                c h
+                        )
+                        calc(100% - var(--flair-tint-step)),
+                    black var(--flair-tint-step)
+                )
+                clamp(0, (var(--flair-contrast-color-threshold) - l) * 1000000, 1) 0 0
         )
     );
     --flair-danger-contrast-color: oklch(
@@ -1050,9 +1108,9 @@ span.alert-title {
 }
 .bg-primary-light {
     background-color: var(--flair-primary-color-lightened);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-primary-lightened-contrast-color);
     * {
-        color: var(--flair-primary-contrast-color);
+        color: var(--flair-primary-lightened-contrast-color);
     }
 }
 .bg-secondary {
@@ -1064,9 +1122,9 @@ span.alert-title {
 }
 .bg-secondary-light {
     background-color: var(--flair-secondary-color-lightened);
-    color: var(--flair-secondary-contrast-color);
+    color: var(--flair-secondary-lightened-contrast-color);
     * {
-        color: var(--flair-secondary-contrast-color);
+        color: var(--flair-secondary-lightened-contrast-color);
     }
 }
 .bg-light {

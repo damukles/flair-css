@@ -20,12 +20,13 @@ neutrals and readable text colors — is derived in OKLCH:
 }
 ```
 
-Optional tuning (OKLCH lightness, 0–1):
+Optional color tuning:
 
 | Variable                           | Default | Effect                                        |
 | ---------------------------------- | ------- | --------------------------------------------- |
 | `--flair-dark-lightness-pivot`     | `1.15`  | dark-mode lightness = pivot − light lightness |
-| `--flair-shade-step`               | `0.12`  | lightness step for `-darkened`/`-lightened`   |
+| `--flair-shade-step`               | `0.12`  | OKLCH lightness step for `-darkened`          |
+| `--flair-tint-step`                | `25%`   | amount of white/black mixed into `-lightened` |
 | `--flair-contrast-color-threshold` | `0.6`   | fills lighter than this get black text        |
 
 Status colors: `--flair-danger-color`, `--flair-success-color`, `--flair-warning-color`.
