@@ -1,76 +1,39 @@
 :root {
-    /* main colors */
+    /* main colors (any CSS color, e.g. hex) */
     color-scheme: light dark;
-    --flair-primary-color-hue: 212;
-    --flair-primary-color-saturation: 71%;
-    --flair-primary-color-lightness: 45%;
-    --flair-primary-color: light-dark(
-        hsl(
-            var(--flair-primary-color-hue),
-            var(--flair-primary-color-saturation),
-            var(--flair-primary-color-lightness)
-        ),
-        hsl(
-            var(--flair-primary-color-hue),
-            var(--flair-primary-color-saturation),
-            calc(100% - var(--flair-primary-color-lightness))
-        )
-    );
-    --flair-secondary-color-hue: 32;
-    --flair-secondary-color-saturation: 25%;
-    --flair-secondary-color-lightness: 65%;
-    --flair-secondary-color: light-dark(
-        hsl(
-            var(--flair-secondary-color-hue),
-            var(--flair-secondary-color-saturation),
-            var(--flair-secondary-color-lightness)
-        ),
-        hsl(
-            var(--flair-secondary-color-hue),
-            var(--flair-secondary-color-saturation),
-            calc(100% - var(--flair-secondary-color-lightness))
-        )
-    );
-    --flair-default-color-hue: var(--flair-primary-color-hue);
-    --flair-default-color-saturation: 25%;
-    --flair-default-color-lightness: 85%;
-    --flair-default-color: light-dark(
-        hsl(
-            var(--flair-default-color-hue),
-            var(--flair-default-color-saturation),
-            var(--flair-default-color-lightness)
-        ),
-        hsl(
-            var(--flair-default-color-hue),
-            var(--flair-default-color-saturation),
-            calc(100% - var(--flair-default-color-lightness))
-        )
-    );
-    --flair-font-color-hue: var(--flair-primary-color-hue);
-    --flair-font-color-saturation: 25%;
-    --flair-font-color-lightness: 25%;
-    --flair-font-color: light-dark(
-        hsl(
-            var(--flair-font-color-hue),
-            var(--flair-font-color-saturation),
-            var(--flair-font-color-lightness)
-        ),
-        hsl(
-            var(--flair-font-color-hue),
-            var(--flair-font-color-saturation),
-            calc(100% - var(--flair-font-color-lightness))
-        )
-    );
-    --flair-background-color-lightness: 100%;
-    --flair-background-color: light-dark(
-        hsl(0, 0%, var(--flair-background-color-lightness)),
-        hsl(0, 0%, calc(100% - var(--flair-background-color-lightness)))
-    );
-    --flair-danger-color: hsl(0, 100%, 45%);
-    --flair-success-color: hsl(120, 100%, 35%);
-    --flair-warning-color: hsl(50, 100%, 50%);
-    --flair-modal-background-color: hsl(0, 0%, 0%, 0.1);
+    --flair-primary: #216dc4;
+    --flair-secondary: #bca78f;
+    --flair-danger-color: oklch(0.581 0.238 29.2);
+    --flair-success-color: oklch(0.664 0.226 142.5);
+    --flair-warning-color: oklch(0.881 0.181 94);
+    --flair-modal-background-color: oklch(0 0 0 / 0.1);
     --flair-modal-background-blur: blur(15px);
+
+    /* color tuning (OKLCH lightness, 0-1) */
+    /* dark-mode lightness = pivot - light-mode lightness */
+    --flair-dark-lightness-pivot: 1.15;
+    --flair-shade-step: 0.12;
+    /* text on a fill turns white below this lightness, black above */
+    --flair-contrast-color-threshold: 0.6;
+
+    /* resolved colors */
+    --flair-primary-color: light-dark(
+        var(--flair-primary),
+        oklch(from var(--flair-primary) calc(var(--flair-dark-lightness-pivot) - l) c h)
+    );
+    --flair-secondary-color: light-dark(
+        var(--flair-secondary),
+        oklch(from var(--flair-secondary) calc(var(--flair-dark-lightness-pivot) - l) c h)
+    );
+    --flair-default-color: light-dark(
+        oklch(from var(--flair-primary) 0.879 min(c, 0.017) h),
+        oklch(from var(--flair-primary) 0.263 min(c, 0.023) h)
+    );
+    --flair-font-color: light-dark(
+        oklch(from var(--flair-primary) 0.361 min(c, 0.035) h),
+        oklch(from var(--flair-primary) 0.796 min(c, 0.029) h)
+    );
+    --flair-background-color: light-dark(oklch(1 0 0), oklch(0 0 0));
 
     /* typography */
     --flair-font-family: 'Segoe UI', Verdana, sans-serif;
@@ -81,18 +44,17 @@
 
     /* elements */
     --flair-element-border-color: var(--flair-default-color);
-    --flair-element-background-color-lightness: 99%;
-    --flair-element-background-color: light-dark(
-        hsl(0, 0%, var(--flair-element-background-color-lightness)),
-        hsl(0, 0%, calc(100% - var(--flair-element-background-color-lightness)))
-    );
+    --flair-element-background-color: light-dark(oklch(0.992 0 0), oklch(0.092 0 0));
     --flair-border-radius: 0.25rem;
     --flair-element-spacing-vertical: 0.75rem;
     --flair-element-spacing-horizontal: 1rem;
     --flair-element-spacing-horizontal-semi: calc(var(--flair-element-spacing-horizontal) * 1.25);
     --flair-element-spacing-horizontal-wide: calc(var(--flair-element-spacing-horizontal) * 1.75);
-    --flair-element-box-shadow: 0 2px 12px 0 hsl(var(--flair-primary-color-hue), 10%, 90%);
-    --flair-element-box-shadow-dark: 0 2px 12px 0 hsl(var(--flair-primary-color-hue), 10%, 10%);
+    --flair-element-box-shadow: 0 2px 12px 0
+        light-dark(
+            oklch(from var(--flair-primary) 0.922 min(c, 0.004) h),
+            oklch(from var(--flair-primary) 0.213 min(c, 0.006) h)
+        );
     --flair-select-chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='hsl(180, 1%, 25%)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     --flair-select-chevron-spacing-left: 1rem;
     --flair-checkbox-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
@@ -102,103 +64,97 @@
 
     /* calculated colors */
     --flair-primary-color-darkened: light-dark(
-        hsl(
-            var(--flair-primary-color-hue),
-            var(--flair-primary-color-saturation),
-            calc(var(--flair-primary-color-lightness) - 15%)
-        ),
-        hsl(
-            var(--flair-primary-color-hue),
-            var(--flair-primary-color-saturation),
-            calc(100% - var(--flair-primary-color-lightness) + 15%)
+        oklch(from var(--flair-primary) calc(l - var(--flair-shade-step)) c h),
+        oklch(
+            from var(--flair-primary)
+                calc(var(--flair-dark-lightness-pivot) - l + var(--flair-shade-step)) c h
         )
     );
     --flair-primary-color-lightened: light-dark(
-        hsl(
-            var(--flair-primary-color-hue),
-            var(--flair-primary-color-saturation),
-            calc(var(--flair-primary-color-lightness) + 15%)
-        ),
-        hsl(
-            var(--flair-primary-color-hue),
-            var(--flair-primary-color-saturation),
-            calc(100% - var(--flair-primary-color-lightness) - 15%)
+        oklch(from var(--flair-primary) calc(l + var(--flair-shade-step)) c h),
+        oklch(
+            from var(--flair-primary)
+                calc(var(--flair-dark-lightness-pivot) - l - var(--flair-shade-step)) c h
         )
     );
     --flair-secondary-color-darkened: light-dark(
-        hsl(
-            var(--flair-secondary-color-hue),
-            var(--flair-secondary-color-saturation),
-            calc(var(--flair-secondary-color-lightness) - 15%)
-        ),
-        hsl(
-            var(--flair-secondary-color-hue),
-            var(--flair-secondary-color-saturation),
-            calc(100% - var(--flair-secondary-color-lightness) + 15%)
+        oklch(from var(--flair-secondary) calc(l - var(--flair-shade-step)) c h),
+        oklch(
+            from var(--flair-secondary)
+                calc(var(--flair-dark-lightness-pivot) - l + var(--flair-shade-step)) c h
         )
     );
     --flair-secondary-color-lightened: light-dark(
-        hsl(
-            var(--flair-secondary-color-hue),
-            var(--flair-secondary-color-saturation),
-            calc(var(--flair-secondary-color-lightness) + 15%)
-        ),
-        hsl(
-            var(--flair-secondary-color-hue),
-            var(--flair-secondary-color-saturation),
-            calc(100% - var(--flair-secondary-color-lightness) - 15%)
+        oklch(from var(--flair-secondary) calc(l + var(--flair-shade-step)) c h),
+        oklch(
+            from var(--flair-secondary)
+                calc(var(--flair-dark-lightness-pivot) - l - var(--flair-shade-step)) c h
         )
     );
     --flair-default-color-darkened: light-dark(
-        hsl(
-            var(--flair-default-color-hue),
-            var(--flair-default-color-saturation),
-            calc(var(--flair-default-color-lightness) - 15%)
-        ),
-        hsl(
-            var(--flair-default-color-hue),
-            var(--flair-default-color-saturation),
-            calc(100% - var(--flair-default-color-lightness) + 15%)
-        )
+        oklch(from var(--flair-primary) 0.754 min(c, 0.036) h),
+        oklch(from var(--flair-primary) 0.407 min(c, 0.041) h)
     );
-    --flair-default-color-lightened: light-dark(
-        hsl(
-            var(--flair-default-color-hue),
-            var(--flair-default-color-saturation),
-            calc(var(--flair-default-color-lightness) + 15%)
-        ),
-        hsl(
-            var(--flair-default-color-hue),
-            var(--flair-default-color-saturation),
-            calc(100% - var(--flair-default-color-lightness) - 15%)
-        )
-    );
+    --flair-default-color-lightened: light-dark(oklch(1 0 0), oklch(0 0 0));
     --flair-default-color-text: light-dark(
-        hsl(
-            var(--flair-default-color-hue),
-            var(--flair-default-color-saturation),
-            calc(var(--flair-default-color-lightness) - 20%)
-        ),
-        hsl(
-            var(--flair-default-color-hue),
-            var(--flair-default-color-saturation),
-            calc(100% - var(--flair-default-color-lightness) + 20%)
-        )
-    );
-    --flair-contrast-color-threshold: 70%;
-    --flair-primary-contrast-color-switch: calc(
-        (var(--flair-primary-color-lightness) - var(--flair-contrast-color-threshold)) * -100
+        oklch(from var(--flair-primary) 0.712 min(c, 0.042) h),
+        oklch(from var(--flair-primary) 0.452 min(c, 0.047) h)
     );
     --flair-primary-contrast-color: light-dark(
-        hsl(0, 0%, calc(var(--flair-primary-contrast-color-switch))),
-        hsl(0, 0%, calc(100% - var(--flair-primary-contrast-color-switch)))
-    );
-    --flair-secondary-contrast-color-switch: calc(
-        (var(--flair-secondary-color-lightness) - var(--flair-contrast-color-threshold)) * -100
+        oklch(
+            from var(--flair-primary)
+                clamp(0, (var(--flair-contrast-color-threshold) - l) * 1000000, 1) 0 0
+        ),
+        oklch(
+            from var(--flair-primary)
+                clamp(
+                    0,
+                    (
+                            l -
+                                (
+                                    var(--flair-dark-lightness-pivot) -
+                                        var(--flair-contrast-color-threshold)
+                                )
+                        ) *
+                        1000000,
+                    1
+                )
+                0 0
+        )
     );
     --flair-secondary-contrast-color: light-dark(
-        hsl(0, 0%, calc(var(--flair-secondary-contrast-color-switch))),
-        hsl(0, 0%, calc(100% - var(--flair-secondary-contrast-color-switch)))
+        oklch(
+            from var(--flair-secondary)
+                clamp(0, (var(--flair-contrast-color-threshold) - l) * 1000000, 1) 0 0
+        ),
+        oklch(
+            from var(--flair-secondary)
+                clamp(
+                    0,
+                    (
+                            l -
+                                (
+                                    var(--flair-dark-lightness-pivot) -
+                                        var(--flair-contrast-color-threshold)
+                                )
+                        ) *
+                        1000000,
+                    1
+                )
+                0 0
+        )
+    );
+    --flair-danger-contrast-color: oklch(
+        from var(--flair-danger-color)
+            clamp(0, (var(--flair-contrast-color-threshold) - l) * 1000000, 1) 0 0
+    );
+    --flair-success-contrast-color: oklch(
+        from var(--flair-success-color)
+            clamp(0, (var(--flair-contrast-color-threshold) - l) * 1000000, 1) 0 0
+    );
+    --flair-warning-contrast-color: oklch(
+        from var(--flair-warning-color)
+            clamp(0, (var(--flair-contrast-color-threshold) - l) * 1000000, 1) 0 0
     );
 
     /* calculated font sizes */
@@ -396,13 +352,13 @@ a > * {
 select,
 textarea,
 input:not(
-        [type='submit'],
-        [type='button'],
-        [type='reset'],
-        [type='range'],
-        [type='file'],
-        [type='checkbox']
-    ) {
+    [type='submit'],
+    [type='button'],
+    [type='reset'],
+    [type='range'],
+    [type='file'],
+    [type='checkbox']
+) {
     padding: var(--flair-element-spacing-vertical) var(--flair-element-spacing-horizontal);
     background-color: var(--flair-element-background-color);
     border-radius: var(--flair-border-radius);
@@ -411,13 +367,13 @@ input:not(
 }
 select,
 input:not(
-        [type='submit'],
-        [type='button'],
-        [type='reset'],
-        [type='range'],
-        [type='file'],
-        [type='checkbox']
-    ) {
+    [type='submit'],
+    [type='button'],
+    [type='reset'],
+    [type='range'],
+    [type='file'],
+    [type='checkbox']
+) {
     height: calc(
         calc(1rem * var(--flair-line-height)) + calc(2 * var(--flair-element-spacing-vertical)) +
             2px
@@ -568,13 +524,13 @@ textarea {
     > :where(
         button,
         input:not(
-                [type='submit'],
-                [type='button'],
-                [type='reset'],
-                [type='range'],
-                [type='file'],
-                [type='checkbox']
-            )
+            [type='submit'],
+            [type='button'],
+            [type='reset'],
+            [type='range'],
+            [type='file'],
+            [type='checkbox']
+        )
     ) {
     margin: 0;
 }
@@ -582,13 +538,13 @@ textarea {
     > :where(
         button,
         input:not(
-                [type='submit'],
-                [type='button'],
-                [type='reset'],
-                [type='range'],
-                [type='file'],
-                [type='checkbox']
-            )
+            [type='submit'],
+            [type='button'],
+            [type='reset'],
+            [type='range'],
+            [type='file'],
+            [type='checkbox']
+        )
     ):first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -597,13 +553,13 @@ textarea {
     > :where(
         button,
         input:not(
-                [type='submit'],
-                [type='button'],
-                [type='reset'],
-                [type='range'],
-                [type='file'],
-                [type='checkbox']
-            )
+            [type='submit'],
+            [type='button'],
+            [type='reset'],
+            [type='range'],
+            [type='file'],
+            [type='checkbox']
+        )
     ):not(:first-child, :last-child) {
     border-radius: 0;
 }
@@ -611,13 +567,13 @@ textarea {
     > :where(
         button,
         input:not(
-                [type='submit'],
-                [type='button'],
-                [type='reset'],
-                [type='range'],
-                [type='file'],
-                [type='checkbox']
-            )
+            [type='submit'],
+            [type='button'],
+            [type='reset'],
+            [type='range'],
+            [type='file'],
+            [type='checkbox']
+        )
     ):last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -649,9 +605,6 @@ header {
     padding: var(--flair-header-padding);
     background-color: var(--flair-header-background-color);
     box-shadow: var(--flair-element-box-shadow);
-    @media (prefers-color-scheme: dark) {
-        box-shadow: var(--flair-element-box-shadow-dark);
-    }
 
     .sticky {
         position: sticky;
@@ -752,9 +705,6 @@ nav.navbar > #navbar-toggler {
     background: var(--flair-background-color);
     border-radius: var(--flair-border-radius);
     box-shadow: var(--flair-element-box-shadow);
-    @media (prefers-color-scheme: dark) {
-        box-shadow: var(--flair-element-box-shadow-dark);
-    }
 }
 .card-header,
 .card-footer {
@@ -849,15 +799,15 @@ table.striped tr:nth-child(even) {
 }
 .badge.success {
     background-color: var(--flair-success-color);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-success-contrast-color);
 }
 .badge.warning {
     background-color: var(--flair-warning-color);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-warning-contrast-color);
 }
 .badge.danger {
     background-color: var(--flair-danger-color);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-danger-contrast-color);
 }
 
 /* Selection List */
@@ -867,9 +817,6 @@ table.striped tr:nth-child(even) {
     margin-bottom: var(--flair-element-spacing-vertical);
     border-radius: var(--flair-border-radius);
     box-shadow: var(--flair-element-box-shadow);
-    @media (prefers-color-scheme: dark) {
-        box-shadow: var(--flair-element-box-shadow-dark);
-    }
 }
 .list-item {
     background-color: var(--flair-element-background-color);
@@ -890,9 +837,6 @@ table.striped tr:nth-child(even) {
     margin-bottom: var(--flair-element-spacing-vertical);
     border-radius: var(--flair-border-radius);
     box-shadow: var(--flair-element-box-shadow);
-    @media (prefers-color-scheme: dark) {
-        box-shadow: var(--flair-element-box-shadow-dark);
-    }
 }
 .accordion-item {
     border-bottom: 1px solid var(--flair-element-border-color);
@@ -1020,17 +964,17 @@ ul.tabs li.active {
 }
 .alert-success {
     background-color: var(--flair-success-color);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-success-contrast-color);
     border-color: var(--flair-success-color);
 }
 .alert-warning {
     background-color: var(--flair-warning-color);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-warning-contrast-color);
     border-color: var(--flair-warning-color);
 }
 .alert-danger {
     background-color: var(--flair-danger-color);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-danger-contrast-color);
     border-color: var(--flair-danger-color);
 }
 
@@ -1070,9 +1014,6 @@ span.alert-title {
 /* helpers */
 .elevated {
     box-shadow: var(--flair-element-box-shadow);
-    @media (prefers-color-scheme: dark) {
-        box-shadow: var(--flair-element-box-shadow-dark);
-    }
 }
 .rounded {
     border-radius: var(--flair-border-radius);
@@ -1102,14 +1043,14 @@ span.alert-title {
 }
 .bg-primary {
     background-color: var(--flair-primary-color);
-    color: var(--flair-secondary-contrast-color);
+    color: var(--flair-primary-contrast-color);
     * {
         color: var(--flair-primary-contrast-color);
     }
 }
 .bg-primary-light {
     background-color: var(--flair-primary-color-lightened);
-    color: var(--flair-secondary-contrast-color);
+    color: var(--flair-primary-contrast-color);
     * {
         color: var(--flair-primary-contrast-color);
     }
@@ -1133,30 +1074,30 @@ span.alert-title {
 }
 .bg-dark {
     background-color: var(--flair-primary-color-darkened);
-    color: var(--flair-secondary-contrast-color);
+    color: var(--flair-primary-contrast-color);
     * {
         color: var(--flair-primary-contrast-color);
     }
 }
 .bg-danger {
     background-color: var(--flair-danger-color);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-danger-contrast-color);
     * {
-        color: var(--flair-primary-contrast-color);
+        color: var(--flair-danger-contrast-color);
     }
 }
 .bg-success {
     background-color: var(--flair-success-color);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-success-contrast-color);
     * {
-        color: var(--flair-primary-contrast-color);
+        color: var(--flair-success-contrast-color);
     }
 }
 .bg-warning {
     background-color: var(--flair-warning-color);
-    color: var(--flair-primary-contrast-color);
+    color: var(--flair-warning-contrast-color);
     * {
-        color: var(--flair-primary-contrast-color);
+        color: var(--flair-warning-contrast-color);
     }
 }
 .text-primary {
