@@ -12,7 +12,7 @@
     /* color tuning (OKLCH lightness, 0-1) */
     /* dark-mode lightness = pivot - light-mode lightness */
     --flair-dark-lightness-pivot: 1.15;
-    --flair-shade-step: 0.12;
+    --flair-shade-step: 0.4;
     /* text on a fill turns white below this lightness, black above */
     --flair-contrast-color-threshold: 0.6;
 
